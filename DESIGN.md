@@ -811,6 +811,200 @@ The game uses **peer-to-peer WebRTC data channels** for gameplay, with Cloudflar
 
 ---
 
+## The Fourth Wall — Real Browser as Game Mechanic
+
+The game runs in a real browser. The browser IS part of the game. This section covers mechanics that blur the line between the game and the actual browser environment.
+
+### DevTools as Cheat Codes
+
+The real browser DevTools are a game mechanic, not an exploit. Opening the console is like finding a secret weapon — the game acknowledges and rewards it.
+
+**Console commands that work:**
+- `game.gravity = 0` — Caret floats. An NPC reacts: "Did you just... modify the runtime? That's not a bug, that's a feature."
+- `game.speed = 2` — Everything speeds up. Lighthouse NPC docks your performance score.
+- `game.noclip = true` — Phase through walls. W3C Validator NPC is horrified.
+- `document.querySelector('.boss').remove()` — Deletes the boss from the DOM. It works. The boss is gone. But the victory doesn't trigger because you didn't "defeat" it — you just removed the node. The freed feature doesn't unlock. An NPC says: "The DOM forgets, but the accessibility tree remembers." You have to refresh and fight properly... unless you also know to dispatch the right CustomEvent.
+- `document.title = 'I am a hacker'` — The favicon Caret rolls its eyes.
+
+**Inspect Element as gameplay:**
+- In Era 9, DevTools become a required mechanic. You literally edit elements in the inspector to fix the malformed document boss.
+- Earlier eras drop hints: elements have `data-hint` attributes visible only in DevTools. "Check my attributes" says an NPC.
+- Editing CSS in the inspector panel changes the game world in real time. Add `background: red` to an element and it turns red in the game. This is how the web actually works — the game just refuses to pretend otherwise.
+
+**The game watches for DevTools:**
+- First time you open DevTools, a one-time event fires. A tiny `<meta>` NPC appears: "Ah, a developer. Welcome to the real game." Unlocks a "Developer Mode" badge.
+- Subsequent console interactions are logged in-game as a "commit history" visible in a `<pre>` block in hub areas.
+
+### URL as API
+
+Every URL is meaningful. Query params are cheat codes. Path segments are room addresses. The URL bar is a command line.
+
+**Query param cheats:**
+- `?god=true` — invincibility, but a `<small>` watermark reads "cheats enabled" and Lighthouse gives you 0/100
+- `?era=3` — skip to Era 3 (but without abilities from 1–2, making it harder)
+- `?gravity=-1` — everything falls up. Ceilings become floors. `<header>` is now the death zone. `<footer>` is safety.
+- `?theme=geocities` — any level renders in Era 2 aesthetic. Tiled backgrounds, Comic Sans, sparkle cursors. Gameplay unchanged but VIBES.
+- `?b=konami` — classic Konami code homage. 30 extra lives. Because some traditions deserve respect.
+- `?debug=true` — shows hitboxes, collision normals, frame timing. Useful AND educational.
+- `?lang=view-source` — the page renders as its own source code. A preview of Era 9.
+
+**Path-based navigation:**
+- `/rooms/dialog-boss` is a literal URL you can type. No menu needed. You ARE navigating a website.
+- `/rooms/` without a room name shows a sitemap — which is also a level select screen — which is also an actual HTML sitemap.
+- Sharing a URL shares a game state. "Come help me with the boss" = send the URL.
+
+**Hash fragments as checkpoints:**
+- `#checkpoint-3` scrolls to (and spawns you at) checkpoint 3. Because that's what fragment identifiers do.
+- Players discover they can bookmark checkpoints. Because that's what bookmarks do.
+
+### Persistence — Cookies, localStorage, and the Application Tab
+
+Game state lives in real browser storage APIs. The Application tab in DevTools IS your inventory screen.
+
+**Cookies as currency:**
+- In-game currency is literally stored in `document.cookie`. Each coin is a cookie: `gold=47; path=/; max-age=86400`.
+- Cookies expire. If you don't play for a day, your gold decays. This is how cookies actually work. An NPC explains: "Should've set a longer `max-age`."
+- Different cookie attributes matter: `path=/rooms/forms` means that gold is only spendable in the forms level. `SameSite=Strict` gold can't be transferred to other players. `Secure` gold only exists in HTTPS.
+- Players who know cookies can edit them in DevTools: Application > Cookies. This works. The game respects whatever you set. But there's a catch — the game also sets an `HttpOnly` integrity hash cookie that validates your gold total server-side via the CF Worker on multiplayer sync. Edit your cookies in singleplayer? Go wild, you earned that knowledge. Try it in multiplayer? The server rejects the desync. Just like real cookie security.
+
+**localStorage as inventory:**
+- Items are stored in `localStorage`: `localStorage.setItem('inventory', JSON.stringify(['block-cursor', 'double-jump', 'wall-grip']))`.
+- Players can see their full inventory in Application > Local Storage. Can they edit it? Yes. Does it work? Yes. Is that cheating or is that just understanding web storage? The game doesn't judge.
+- `localStorage` has a 5MB limit. Hoarding too many items literally fills up your storage quota. An NPC warns: "You should clear some of that. `QuotaExceededError` is no joke."
+- Clearing browsing data wipes your inventory. The game warns you on first launch: "This game stores progress in your browser. Treat your Application tab with care." If you clear it anyway and return, a single `<p>` element says: "localStorage was cleared. Everything is gone. This is what data loss feels like." Then slowly rebuilds a starter kit.
+
+**sessionStorage as temporary buffs:**
+- Power-ups from the current session live in `sessionStorage`. Close the tab, they're gone. Refresh, they're gone. This teaches the difference between `localStorage` (persistent) and `sessionStorage` (ephemeral).
+- Speed boosts, temporary shields, double-damage — all `sessionStorage`. An NPC quips: "Nothing in `sessionStorage` survives a refresh. Just like your motivation on a Monday."
+
+**IndexedDB as the deep vault (Era 6+):**
+- When localStorage isn't enough, the game introduces IndexedDB for complex save data: level completion state, character unlocks, companion relationships, achievement progress.
+- The Application > IndexedDB section becomes a rich database of your playthrough. Named stores for different data types. Players who poke around find it well-organized — because the game models good storage architecture.
+- An NPC in Era 6: "We used to put everything in cookies. Then localStorage. Now we have a proper database. This is called progress."
+
+### The Accessibility Tree as a Parallel Dimension
+
+A second layer of reality that exists alongside the visual DOM. Toggle it on and the game reveals what screen readers experience.
+
+**How it works:**
+- Press a key (or find an in-game item) to toggle the "a11y tree view." The visual DOM fades to 30% opacity and the accessibility tree renders as a parallel structure.
+- Elements with good accessible names are solid, glowing, fully platformable in this dimension. Elements with no accessible name are invisible — gaps in the floor, missing walls.
+- `role` attributes determine the element's behavior in this dimension, not its tag name. A `<div role="button">` acts like a button here. A `<button>` with no accessible name is a dark, barely-visible ghost platform.
+- `aria-hidden="true"` elements are completely absent from this dimension. They exist in the visual DOM but not here. This teaches exactly what `aria-hidden` does.
+
+**Secrets in the a11y tree:**
+- Some collectibles only exist in the a11y tree dimension. Sighted players who never toggle it on will miss them entirely. This mirrors reality — the a11y experience contains information and pathways that the visual experience doesn't.
+- An entire quest line: the "Screen Reader Path." A series of levels designed to be navigated purely via the a11y tree. Landmarks as waypoints. Headings as a table of contents you can jump between. Skip-nav links as literal teleporters.
+- A secret boss only visible in the a11y tree: **The Unlabeled Form** — a massive `<form>` with no `<label>` elements, no `aria-label`, no placeholder text. In the visual DOM it looks fine (placeholder text and visual proximity make it usable). In the a11y tree it's a nightmare — blank inputs with no description, buttons that say "Submit" with no context. Defeating it means adding the missing labels, which you can only do in a11y tree dimension.
+
+**The meta-teaching:**
+The a11y tree dimension makes the invisible visible. Players experience firsthand that the web has two realities — what you see, and what assistive technology sees. Making them congruent is the whole point of accessibility.
+
+### The Favicon
+
+The browser tab's favicon is alive. It's a 16×16 pixel version of your current character, and it reacts to everything.
+
+- **Idle:** Tiny blinking cursor animation
+- **Running:** Legs move in a 2-frame animation (at favicon resolution, this is ambitious and charming)
+- **Jumping:** Squash-and-stretch in 16px
+- **Dying:** Turns into a 💀 briefly, then respawns
+- **Boss fight:** Favicon flashes red
+- **Paused:** Favicon shows `⏸`
+- **Tab backgrounded:** Favicon Caret falls asleep (closes eyes). Tab title changes to "💤 Reflow — zzz"
+- **Multiple tabs open:** Each tab's favicon shows a different character. They're aware of each other via `BroadcastChannel`. Open the same level in two tabs and the favicons wave at each other.
+- **DevTools open:** Favicon puts on tiny glasses 🤓
+
+Implementation: dynamically generated via a tiny offscreen `<canvas>` rendered to a `<link rel="icon">` data URL. Updated at ~4fps (favicon animation is naturally low-framerate and that's part of the charm).
+
+### Error Pages as Secret Levels
+
+HTTP status codes are game levels. Navigate to a bad URL and you don't get a boring error page — you get a secret level themed around the error.
+
+**404 — Not Found**
+- A void. Empty white space. A single `<h1>` says "404". Platforms are sparse, floating in nothing. The floor is gone. There's no ground because the ground was never defined — it wasn't found.
+- Hidden deep in the void: a `<link rel="canonical">` item that points you to where you meant to go. Finding it teaches what canonical URLs are.
+- An NPC (a broken `<a>` tag): "I used to go somewhere. The `href` still works but the destination is gone. I just point into the void now."
+
+**500 — Internal Server Error**
+- A corrupted hellscape. The level exists but it's broken. Elements render halfway. CSS is partially applied. JavaScript errors flash in red `<pre>` blocks in the sky. The game loop stutters intentionally.
+- The goal: find the error in the server code (a `<script>` block with a visible bug) and fix it. The level heals as you patch errors.
+- Boss: an uncaught `TypeError: Cannot read properties of undefined (reading 'position')`. It crashes and restarts repeatedly. You must catch it with a try/catch — literally place `<try>` and `<catch>` blocks around the error.
+
+**403 — Forbidden**
+- A level that exists and renders fully — but an `<auth>` barrier blocks entry. You can see everything behind it but can't pass. Platforms are visible but intangible.
+- Find a `<token>` item elsewhere in the game. Return with it. The barrier lifts. Teaches authentication/authorization.
+- Alternatively, the barrier says `role="admin"` and you need to find an NPC who grants you the role.
+
+**418 — I'm a Teapot**
+- A cozy, silly level. A giant teapot rendered in CSS. Steam particles rise from it. The platforms are teacups. The whole thing is a joke and it knows it. Relaxing music. No enemies. No timer. Just vibes.
+- A plaque reads: "This status code was defined in RFC 2324 as an April Fools joke in 1998 and has persisted in HTTP specifications since. Some things on the web exist purely for joy."
+- Hidden item: a `<br>ew` tag (a pun on `<br>` and brew). Equipping it lets Caret make tea at any rest point, restoring health. Useless. Beloved.
+
+**301 — Moved Permanently**
+- A redirect gauntlet. Enter the level and you're immediately flung to another level. Which redirects to another. Which redirects to another. A chain of portals, each one a `<a>` with `HTTP-EQUIV="refresh"`.
+- The challenge: break the redirect chain by finding and closing the loop. One of the redirects points back to the start. Find it, close it with Slash, and the final destination renders.
+- Teaches redirect chains, circular redirects, and why `301` vs `302` matters (permanent redirects are cached — you can't undo them easily).
+
+**503 — Service Unavailable**
+- The level is a loading screen. Forever. A `<progress>` bar at 99% that never completes. Skeleton loaders everywhere. Spinners spinning.
+- The server is "down for maintenance." Find the service worker (a literal NPC named Service Worker) hiding in a `<cache>` element. Activate it and the level loads from cache — a stale, slightly outdated version of a real level, but playable. Teaches offline-first and service worker caching.
+
+### Hidden Routes — `robots.txt` as a Map
+
+The game's actual `/robots.txt` file is a treasure map. It lists `Disallow` paths that real search engine crawlers won't index — making these levels unsearchable, unlinkable, and undiscoverable except by players who think to check.
+
+```
+User-agent: *
+Disallow: /rooms/source/
+Disallow: /rooms/backrooms/
+Disallow: /rooms/null/
+Disallow: /.well-known/secrets/
+```
+
+**`/rooms/source/`** — The game's own source code as a playable level. Platform on Svelte components. Jump between `<script>` blocks. The game engine rendered as a game level. Meta recursion.
+
+**`/rooms/backrooms/`** — An infinite procedurally generated level of identical-looking `<div>` elements. Fluorescent lighting (CSS `brightness` filter cranked). Faint buzzing ambient audio. Slightly damp. No exit is obvious. There IS one, but it's a `<a>` tag with no visible text — only an `aria-label`. You have to toggle the a11y tree to find it.
+
+**`/rooms/null/`** — A level where `null` is a character. Everything evaluates to null. Platforms exist but `typeof platform === 'object'` and they behave like null — technically present, semantically nothing. The whole level is a meditation on the billion-dollar mistake.
+
+**`/.well-known/secrets/`** — Uses the actual `.well-known` URI convention (RFC 8615). Contains a JSON file with coordinates to hidden items in every level. Players who find this feel like hackers. They feel correctly.
+
+**Discovery breadcrumbs:**
+- An NPC mentions "I've been disallowed from talking about certain places."
+- A `<meta name="robots" content="noindex">` tag appears on certain elements that glow differently.
+- The `/robots.txt` route is an actual accessible file in the deployed game. Checking it is a real web literacy skill.
+- None of these levels appear in any menu, sitemap, or `<a>` tag anywhere in the game.
+
+### Browser Wars Lore
+
+The browser engines aren't abstract concepts — they're factions with ruins, NPCs, and artifacts scattered through the eras.
+
+**Netscape Navigator** — Era 1–2
+- A ruined empire. Grand architecture now crumbling. The "Navigator" is a literal navigator NPC — a compass and sextant character who gives you maps of each era.
+- Netscape's ruins contain artifacts: `<blink>` (the weapon that destroyed them from within), `<layer>` (a platform that only works in Netscape's ruins), and the Netscape `throbber` (the animated loading indicator) which serves as a save point.
+- In the ruins you find the Mozilla dragon egg. It hatches in Era 4, becoming Firefox.
+
+**Internet Explorer** — Era 2–6
+- Starts as a dominant castle (Era 3 boss). Post-defeat, degrades through eras. By Era 5, IE's castle has conditional comment walls `<!--[if IE]>` that only some players can see. By Era 7, it's a single tombstone: `<meta http-equiv="X-UA-Compatible" content="IE=edge">`.
+- IE's ghost haunts enterprise levels, whispering about ActiveX and backward compatibility.
+- If you collect all vendor prefixes (`-ms-`, `-webkit-`, `-moz-`, `-o-`), IE's ghost grants you "Quirks Mode" — a temporary ability that breaks physics rules but renders everything slightly wrong.
+
+**Firefox / Mozilla** — Era 4+
+- Hatches from the Netscape egg. The `about:config` dungeon: a massive secret area filled with hundreds of boolean flags. Each one changes a game mechanic. `dom.caret.blink.enabled = false` stops Caret from blinking. `game.physics.gravity = 0` does what you think. The dungeon rewards systematic exploration — the more flags you toggle, the more you understand the engine.
+- Firefox's `View Source` is the cleanest in the game — syntax-highlighted, with line numbers. Using Firefox's source viewer reveals secrets that other browsers' viewers miss.
+
+**Chrome / V8** — Era 5+
+- The V8 engine room: a mechanical, industrial zone where JavaScript is compiled to machine code in real-time. Gears turn, pistons fire, hot code paths glow red (JIT compilation visualized). You can see your own game inputs being compiled.
+- Chrome's DevTools are the most powerful in-game — extra panels, more detailed inspection. Using Chrome to play is not "better" but it has the richest DevTools integration.
+- The memory profiler reveals which game elements are leaking memory. Fix the leaks and the level runs smoother. Meta-performance optimization.
+
+**Safari / WebKit** — Era 5+
+- An elegant, minimal garden level. Everything is beautiful but some features are conspicuously absent. Platforms that work in other browsers just... aren't here. Signs read "Coming in a future release" and "Available behind a flag."
+- The WebKit NPC is a meticulous gardener who has strong opinions about which features belong in the garden and which are weeds. Sometimes frustrating, sometimes correct.
+- Hidden shortcut: Safari's garden has a gate to a WKWebView level where mobile Safari has different rules entirely. `100vh` doesn't mean what you think it means.
+
+---
+
 ## Open Questions
 
 - How deep does the educational layer go? Optional? Toggleable? Mandatory?
@@ -820,6 +1014,8 @@ The game uses **peer-to-peer WebRTC data channels** for gameplay, with Cloudflar
 - Mobile controls? Touch the DOM directly?
 - PWA / offline support — fitting for the Service Worker era
 - Could the game literally BE a website? Homepage is level 1, about page is level 2, etc.
-- Save system: localStorage in Era 4+ (when JS arrives), cookies in Era 2-3, no saves in Era 1 (historically accurate pain)
+- Save system detail: cookie expiry mechanics, storage quota as gameplay constraint
 - New Game+ where you keep all abilities but the eras remix?
 - Community-created eras for frameworks (React era, Vue era, Angular era) as DLC/expansion?
+- How many hidden routes is too many? Should there be a meta-achievement for finding them all?
+- BroadcastChannel multi-tab interactions — how far do we take this?
