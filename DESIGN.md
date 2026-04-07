@@ -512,6 +512,59 @@ Caret doesn't just change cursor mode — its visual fidelity evolves with the r
 - **Era 8:** 3D depth — Caret is rendered with perspective. Slight parallax on the eyes.
 - **Era 9:** Dissolves into source code. The cursor IS the insertion point in the markup. Pure text. Full circle.
 
+### Caret's Friends — The Symbol Roster
+
+Caret's core friend group. These are web-native glyphs who were scattered across the eras when the time rift hit. Each reunion unlocks a new mechanic. In multiplayer, each is a playable character with unique strengths and tradeoffs.
+
+**`>` (Chevron)** — *The Pathfinder*
+- Caret's best friend. Always pointing forward. Appears in breadcrumbs, CSS child selectors, HTML tag delimiters, markdown blockquotes.
+- Personality: relentlessly optimistic, adventurous, literally cannot stop moving right. Narrates everything like a nature documentary. "> and here we see the elusive `<dialog>`, in its natural habitat..."
+- Gameplay: directional boost ability. Chains into `>>>` for a triple-speed dash. Can create CSS child selector paths between nested elements, opening shortcuts through deeply nested DOM.
+- Tradeoff: **strong rightward momentum, sluggish going left.** Chevron's whole identity is forward motion — reversing feels unnatural and is mechanically slower. Great at speedrunning, bad at backtracking.
+- Multiplayer role: **scout/speedster.** Reaches objectives first, opens paths for teammates.
+
+**`☰` (Hamburger)** — *The Architect*
+- Three stacked lines. The muscle of the group. Found collapsed in an Era 5 `<nav>` element, waiting to be tapped.
+- Personality: quiet, stoic, hides enormous complexity beneath a simple exterior. Rarely speaks, but when it does, everyone listens. Opens up (literally) to reveal hidden depths.
+- Gameplay: can expand into a full navigation menu, creating platforms on demand in a vertical stack. Collapse to squeeze through gaps narrower than any other character. Toggle between open/closed state.
+- Tradeoff: **can create platforms but is slow and heavy.** Expanded state is a sitting duck — wide hitbox, no jump height. Collapsed state is fast but has zero combat/interaction ability.
+- Multiplayer role: **support/builder.** Creates infrastructure for the team. The party's tank when expanded.
+
+**`#` (Hash)** — *The Anchor*
+- The networker. Found in an Era 3 URL fragment, `index.html#contact`, endlessly jumping between anchors on the same page.
+- Personality: knows everyone, remembers everything, a bit of a gossip. "Oh, `#main`? Yeah, we go way back. Did you know they used to be a `<div id='main'>`? Dark times." Speaks in hyperlinks.
+- Gameplay: can teleport to any element with an `id` attribute. Creates `#fragment` anchors on unmarked elements for future teleportation. This is immensely powerful in levels with many `id`d elements and useless in unmarked territory.
+- Tradeoff: **teleportation requires setup — useless in unmarked areas.** Must physically visit and anchor an element before teleporting to it. No anchors = no ability. High skill ceiling, steep learning curve.
+- Multiplayer role: **flanker/assassin.** Sets up a teleport network, then strikes from unexpected positions. Incredible in arenas you've had time to set up; weak in fresh territory.
+
+**`/` (Slash)** — *The Closer*
+- Every tag needs a `/` to end. Found in Era 1, desperately trying to close an unclosed `<p>` tag that's been open since 1993.
+- Personality: blunt, finishes other people's sentences, impatient. "Just CLOSE the tag. How hard is it." Has a complex about being necessary but unappreciated. Secretly terrified of void elements (they don't need closing).
+- Gameplay: can "close" any open element, collapsing it and everything inside. This is destructive — it removes platforms, closes dialogs, ends active processes. Can seal gaps by closing empty elements. Can defeat enemies by closing their containing element.
+- Tradeoff: **purely destructive — cannot create anything.** Slash removes, ends, collapses. Has no building or support ability. Accidentally closing the wrong element can eliminate needed platforms. Friendly fire risk.
+- Multiplayer role: **damage dealer.** Highest burst potential. Can instantly close boss elements. But can also accidentally wreck the team's platform setup.
+
+**`&` (Ampersand)** — *The Shapeshifter*
+- The most beautiful glyph in typography, and it knows it. Found in Era 2, trapped in a loop of `&amp;amp;amp;amp;` — an entity encoding itself infinitely.
+- Personality: dramatic, theatrical, vain. Every entrance is an `&mdash;` em-dash flourish. Speaks in HTML entities. Considers itself the most elegant character in the charset. Has opinions about fonts.
+- Gameplay: can transform into any HTML entity — `&hearts;` for a floating heart platform, `&mdash;` for a long horizontal bridge, `&larr;` for directional push, `&copy;` for a protective shield, `&#9733;` for a thrown projectile. Each form is temporary (5 seconds) with a cooldown.
+- Tradeoff: **high skill ceiling, every form is temporary.** Must constantly cycle between shapes. No permanent state. Master-level players chain entity transformations fluidly; beginners fumble and get caught mid-shift.
+- Multiplayer role: **flex/wildcard.** Can fill any role temporarily but masters none. The character that's never the optimal pick but is always a fun pick.
+
+**`*` (Asterisk)** — *The Wildcard*
+- The CSS universal selector. Tiny but selects EVERYTHING. Found in Era 3 inside a `* { margin: 0; padding: 0; }` reset, bored out of its mind.
+- Personality: hyperactive, overenthusiastic, tries to help everyone simultaneously. Cannot focus on one thing. "I selected ALL the elements! ALL of them! You're welcome!" Has ADHD energy.
+- Gameplay: area-of-effect abilities. `*` selector hits every element in range. Can apply temporary styles to all nearby elements at once — make everything bouncy, make everything slippery, make everything glow. Powerful but indiscriminate.
+- Tradeoff: **affects everything, including allies and needed platforms.** No precision. Friendly fire is guaranteed in multiplayer. Might make the platform you're standing on slippery, or bounce a teammate into a death zone. The buff/debuff doesn't discriminate.
+- Multiplayer role: **chaos agent/area control.** Incredible for clearing crowds and applying zone-wide effects. Terrible if your team needs surgical precision. The "fun but risky" pick.
+
+**`;` (Semicolon)** — *The Quiet One*
+- Ends every CSS declaration. The most taken-for-granted character in all of web development. Found in Era 3, invisible at the end of a `color: blue;` declaration — easy to miss entirely.
+- Personality: soft-spoken, easily overlooked, anxious about being forgotten. Speaks in whispers. But observant — notices things nobody else does. Running gag: Semicolon wanders off and everything breaks. "Wait, where's Semicolon?" *platforms start glitching* "SEMICOLON!"
+- Gameplay: pure support. Standing near Semicolon buffs all your abilities — faster movement, higher jumps, shorter cooldowns. Semicolon "completes" your declarations, making them take effect. Without Semicolon nearby, abilities work at 70% effectiveness.
+- Tradeoff: **almost no solo capability.** Can barely jump, slow, fragile. Entirely dependent on being near allies. But the buff is massive — a Semicolon-buffed Slash or Chevron is terrifying.
+- Multiplayer role: **dedicated support.** The character nobody wants to play until they realize the team is 40% worse without one. The healer/buffer. Experienced teams always have a Semicolon main.
+
 ### Companions & NPCs
 
 Characters from across web history. Some are companions who travel with you. Some are NPCs rooted to their era. Some are enemies who become allies.
@@ -640,11 +693,128 @@ The opening rift should be a reverse-rendered audio timeline: lo-fi beats → ma
 
 ---
 
+## Multiplayer — Multiple Cursors in the Same DOM
+
+### Architecture: WebRTC P2P with Cloudflare Signaling
+
+The game uses **peer-to-peer WebRTC data channels** for gameplay, with Cloudflare Workers + Durable Objects as a lightweight signaling layer.
+
+```
+┌──────────────┐         ┌──────────────────────┐         ┌──────────────┐
+│   Player A   │◄──────► │  CF Worker (signal)   │ ◄──────►│   Player B   │
+│  (host)      │         │  Durable Object per   │         │  (peer)      │
+│              │         │  room — matchmaking,   │         │              │
+└──────┬───────┘         │  offer/answer relay,   │         └──────┬───────┘
+       │                 │  presence only         │                │
+       │                 └──────────────────────┘                │
+       │                                                          │
+       └──────────── WebRTC Data Channel (P2P) ──────────────────┘
+                     inputs ↑ │ state
+                              ▼
+                    Host runs game-loop.ts
+                    Peers send inputs, receive GameState
+```
+
+**Why P2P, not server-relayed:**
+- Near-zero latency for 2–4 player sessions (direct connection, no edge hop)
+- No Durable Object compute costs for game tick processing — DO only handles matchmaking and signaling
+- The game loop already runs client-side in `game-loop.ts` — the host just keeps running it and serializes state to peers
+- Perfect scale: small friend groups, not MMO lobbies
+
+**Signaling flow:**
+1. Host creates room → CF Worker generates room code, stores in Durable Object
+2. Peers join via room code → Worker relays WebRTC offer/answer/ICE candidates
+3. Once P2P connection established, signaling server is idle (presence pings only)
+4. STUN via public servers, TURN fallback via Cloudflare Calls for ~15% of players behind strict NATs
+
+**Host-authoritative model:**
+- Host runs the physics simulation (same `game-loop.ts`, same fixed timestep)
+- Peers send their inputs to host at 60hz (key states, not positions)
+- Host broadcasts full `GameState` snapshot at 30hz (positions, velocities, element states)
+- Peers interpolate between snapshots for smooth rendering
+- Input prediction on peers: apply local input immediately, reconcile when host state arrives
+- On host migration (host disconnects): peer with lowest latency promotes to host, brief freeze
+
+### Game Modes
+
+**Co-op Campaign** (2–4 players)
+- Play through the era campaign together. Each player picks a character from the symbol roster.
+- Levels have paths that require specific abilities to unlock — team composition matters.
+- Caret can wall-jump, Chevron can boost the group, Hash can anchor-teleport teammates to `id`d elements, Hamburger builds platform bridges, etc.
+- Some puzzles need coordinated timing: Slash closes a wall while Semicolon buffs Chevron for a speed dash through the gap.
+- Boss fights scale with player count (more HP, wider arenas, additional attack patterns).
+- Companions still work — shared between the party, chosen at Companion Benches.
+
+**Race** (2–4 players)
+- Same level, first to reach `</html>` wins.
+- Different characters take radically different routes — Chevron sprints the main path, Hash teleports via anchors, Ampersand shapeshifts through shortcuts.
+- Interactions affect all players: Slash closing a platform removes it for everyone. Asterisk's AOE hits all players.
+- Ghost data from best runs displayed as translucent cursors.
+
+**Tag Editor** (2–6 players)
+- Arena mode. One player is the "malformed markup" — a glitching character that corrupts elements it touches. Others are "validators" trying to close/fix the corruption.
+- The malformed player wins by corrupting X elements before being "closed" by Slash or "validated" by the team.
+- Slash has a natural advantage as validator. The malformed player has faster movement to compensate.
+
+**Selector Battle** (2–4 players, free-for-all or teams)
+- Combat arena on a shared DOM. Each character's abilities double as attacks:
+  - `*` has AOE that debuffs everyone in range
+  - `#` has precision teleport-strikes on anchored targets
+  - `>` has dash attacks with high momentum
+  - `/` can close the platform someone is standing on
+  - `&` can shapeshift into projectiles (`&#9733;` star throw)
+  - `;` buffs teammates in range (team mode only)
+  - `☰` body-blocks in expanded form (huge hitbox wall)
+- Last cursor standing wins. Arenas are destructible — elements get closed/corrupted as the match progresses, shrinking the playable space.
+
+### Character Balance
+
+| Character | Speed | Jump | Weight | Ability | Tradeoff |
+|-----------|-------|------|--------|---------|----------|
+| Caret `│` | ★★★ | ★★★ | ★★★ | Cursor mode switching (versatile) | Jack of all trades, master of none |
+| `>` Chevron | ★★★★★ | ★★ | ★★ | Directional dash, `>>>` chain | Sluggish going left, momentum-locked |
+| `☰` Hamburger | ★★ | ★★ | ★★★★★ | Create/collapse platforms | Slow, huge hitbox when expanded |
+| `#` Hash | ★★★ | ★★★ | ★★★ | Teleport to anchored elements | Requires setup, useless unmarked |
+| `/` Slash | ★★★★ | ★★★ | ★★ | Close/destroy elements | Purely destructive, friendly fire |
+| `&` Ampersand | ★★★ | ★★★ | ★★★ | Shapeshift to any entity | Every form temporary, high skill floor |
+| `*` Asterisk | ★★★ | ★★★★ | ★★ | AOE select-all effects | Zero precision, hits everything |
+| `;` Semicolon | ★★ | ★★ | ★★ | 40% buff aura to nearby allies | Nearly helpless solo |
+
+### Netcode Details
+
+**Serialized state per tick** (~200 bytes per player):
+- Position (x, y) — 2×f32
+- Velocity (x, y) — 2×f32
+- Animation state — u8 enum
+- Facing direction — i8
+- Character type — u8
+- Active ability state — u16
+- Grounded/wall-sliding flags — u8 bitfield
+
+**Bandwidth estimate:**
+- 4 players × 200 bytes × 30hz = ~24 KB/s upstream from host
+- Each peer sends ~8 bytes of input state × 60hz = ~480 B/s upstream
+- Well within WebRTC data channel capacity
+
+**Latency handling:**
+- < 50ms: seamless, no visible desync
+- 50–150ms: input prediction covers it, occasional snap corrections
+- 150–300ms: noticeable, but playable for co-op (not competitive)
+- > 300ms: matchmaking warns, suggests closer region
+
+### Room Discovery
+
+- **Room codes:** 4-character alphanumeric, generated by CF Worker, stored in Durable Object with TTL
+- **Friends list:** not built-in — share room codes via Discord, text, etc. (keep it simple)
+- **Quick join:** optional public room list for Race and Selector Battle modes
+- **Spectator mode:** read-only WebRTC connection that receives state but sends no inputs. Spectators see all players as cursors on the DOM — very Google Docs energy.
+
+---
+
 ## Open Questions
 
 - How deep does the educational layer go? Optional? Toggleable? Mandatory?
 - Speedrun mode? The DOM layout creates natural speedrun routing
-- Multiplayer? Multiple cursors in the same DOM?
 - Level editor? It's HTML — view source IS the level editor
 - Accessibility of the game itself — can it be played via screen reader in a meta way?
 - Mobile controls? Touch the DOM directly?
