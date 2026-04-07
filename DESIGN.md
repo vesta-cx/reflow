@@ -512,14 +512,112 @@ Caret doesn't just change cursor mode — its visual fidelity evolves with the r
 - **Era 8:** 3D depth — Caret is rendered with perspective. Slight parallax on the eyes.
 - **Era 9:** Dissolves into source code. The cursor IS the insertion point in the markup. Pure text. Full circle.
 
-### NPCs
-- **Clippy** — appears in Era 4, gives jQuery tips. Annoying but ultimately helpful.
-- **W3C Validator** — a strict NPC that blocks you if your path isn't "valid". Appears from Era 3 onward.
-- **IE6** — becomes a recurring hostile NPC after the Era 3 boss fight. Shows up in later eras doing less damage each time (diminishing relevance).
-- **Lighthouse** — scores your level traversal on Performance, A11y, Best Practices, SEO. First appears in Era 6.
-- **Stack Overflow** — an NPC that gives you the answer but you have to figure out the question.
-- **MDN** — a wise elder NPC with comprehensive knowledge. Always accurate. Lives in a sidebar.
-- **Can I Use** — tells you which features work in which eras. A map-keeper.
+### Companions & NPCs
+
+Characters from across web history. Some are companions who travel with you. Some are NPCs rooted to their era. Some are enemies who become allies.
+
+#### Companions (travel with you across eras)
+
+**Clippy** — *"It looks like you're trying to platform across a deprecated element!"*
+- First appears in Era 4, trapped inside a `<div class="ui-helper-hidden">`. Free him.
+- The companion you didn't ask for but can't get rid of. Floats alongside Caret offering tips. His tips are technically correct but socially oblivious. Occasionally blocks your view at the worst moment.
+- Actually useful: Clippy can "paperclip" two elements together, creating temporary bridges. His shape IS a paperclip — he physically hooks things.
+- Has a redemption arc. In Era 1–3 he's obnoxious. By Era 7 he's learned to read the room — shorter tips, better timing. By Era 9 he's your most loyal companion and sacrifices himself to close the final unclosed tag. ("It looks like you're trying to... fix everything. Let me help." He becomes the `/>` that closes the void element.)
+- Idle animation: transforms into various Office shapes. Paper airplane mode lets him scout ahead.
+
+**BonziBuddy** — *The Gorilla That Knows Too Much*
+- Found in Era 2 in a Geocities guestbook, installed himself without asking. A purple gorilla who "helps" by telling you fun facts about the elements you're standing on. The facts are sometimes wrong in entertaining ways.
+- Actually a reformed adware character. He downloaded himself onto your timeline uninvited (accurate to history) but genuinely wants to help now. He just... can't help also collecting data about your play style and commenting on it. "I noticed you've died 14 times on this `<table>`. Would you like me to search the web for 'how to platform'?"
+- Gameplay: BonziBuddy can sing. His MIDI karaoke creates sound-wave platforms — temporary musical surfaces that pulse with the beat. In Era 2 this is cacophonous and barely usable. By later eras his singing improves and the platforms become reliable. In Era 7 he's actually a decent lo-fi beat companion.
+- Has spyware baggage that becomes a plot point: in Era 6, the `node_modules/` boss tries to recruit him back into the adware network. BonziBuddy's loyalty arc — does he stay with Caret or revert?
+- Idle: juggles browser cookies. Sometimes "accidentally" reads one.
+
+**The Dancing Baby (aka Baby Cha-Cha)** — *The Original Viral Content*
+- Found in Era 2, dancing forever in an `<embed>` tag. The first meme. Has been dancing since 1996 and is tired but can't stop because `autoplay` is set to `true` and `loop` is `infinite`.
+- Free the baby by finding the closing `</embed>` tag. Grateful, the baby joins you.
+- Gameplay: the baby dances on elements to "test" them — revealing hidden properties, triggering interactive elements from a distance, stress-testing platforms. If a platform can hold a dancing baby, it's solid. Also provides comic relief by dancing during boss fights, completely unfazed.
+- Gets progressively better-rendered through the eras (low-poly → Pixar-quality by Era 8).
+- In Era 9, the baby finally gets to stop dancing. Sits down for the first time. A quiet, oddly emotional moment.
+
+**Nyan Cat** — *The Rainbow Bridge Builder*
+- Found in Era 2, stuck in an infinite `<marquee>` loop, trailing rainbows. Has been scrolling left-to-right for decades.
+- Free Nyan Cat by breaking the `<marquee>` (deprecated in Era 3). Nyan Cat is disoriented — has never NOT moved left-to-right.
+- Gameplay: Nyan Cat creates rainbow trails that function as temporary platforms. Flies in a straight horizontal line across gaps. Perfect for bridging chasms. But can ONLY go left-to-right (respecting its `<marquee direction="left">` origin). Need to go right-to-left? Tough. Find another route or wait for Nyan Cat to wrap around.
+- In later eras, learns `direction: rtl` and can finally go both ways. Mind-blown.
+- The rainbow trail's visual fidelity evolves: 8-bit pixels in Era 2, smooth gradients by Era 7, full spectral shader in Era 8.
+
+#### Era-Resident NPCs (found in specific eras)
+
+**The Webmaster** — Era 1–2
+- An `<address>` element personified. The person who "built this site" and maintains it by hand-editing HTML in Notepad. Speaks in `<pre>`-formatted monologues. Has a "best viewed in Netscape Navigator 4.0" badge on their chest.
+- Gives you early-era tips and sells items from their "Links Page" (just a list of `<a>` tags). Can teach Caret the "View Source" ability early if you find their hidden `/~webmaster/` directory.
+- In later eras, if you revisit Era 1–2, the Webmaster has moved on — their page now says "THIS SITE HAS MOVED TO [broken GeoCities URL]".
+
+**The Hamster Dance Ensemble** — Era 2
+- A chorus line of hamster GIFs that perform choreographed routines on `<marquee>` elements. They serve as the rhythm section for BonziBuddy's singing. Their dance creates platform patterns you must time your jumps to.
+- Cannot be freed. They love their `<marquee>`. They were born in the scroll, molded by it.
+
+**The W3C Validator** — Era 3+
+- A strict gatekeeper NPC. Appears at transitions between areas, checking your markup. If you've collected invalid elements or broken nesting, the Validator blocks you until you fix it.
+- Speaks in terse error messages: "Line 47: element `div` not allowed as child of element `ul`."
+- Secretly kind. If you talk to the Validator enough, it reveals it just wants the web to be beautiful and correct. It's seen too much `<table>` layout.
+- After Era 5, the Validator also checks ARIA: "Warning: element with `role="button"` is missing `tabindex`."
+
+**IE6 (Post-Boss)** — Era 4+
+- After being defeated as the Era 3 boss, IE6 doesn't die — it lingers. Shows up in every subsequent era as a diminishing nuisance. In Era 4, it still causes real problems (conditional comments needed). By Era 6, it's a minor annoyance. By Era 7, it's a sad ghost haunting legacy enterprise pages, whispering "but what about backwards compatibility..."
+- Can optionally be befriended. If you collect all the vendor prefixes, IE6 admits defeat gracefully and gives you a secret "quirks mode" ability that lets you break physics rules temporarily.
+
+**jQuery (personified)** — Era 4
+- A friendly `$` function given form. Wraps everything in a warm `$()`. Enthusiastic to a fault — wants to `.animate()` EVERYTHING. Teaches Caret about DOM manipulation but gets visibly nervous in later eras as native APIs replace its functionality.
+- Sticks around through Era 5–6 but gets quieter. By Era 7, jQuery is sitting on a park bench in a `<legacy>` section of the page, still functional, still reliable, but the world has moved on. If you visit, jQuery teaches you one last trick.
+
+**Stack Overflow** — Era 4+
+- An NPC that gives you the answer to a question you haven't asked yet. Always correct. Sometimes the answer is for a completely different game. "Have you tried turning `z-index` to `9999`?"
+- Appearance: a speech bubble containing a green checkmark, surrounded by smaller speech bubbles with slightly different answers that all claim to be better.
+- Sometimes gives you an answer marked [closed as duplicate] that links to another NPC's dialogue.
+
+**MDN** — Era 3+
+- A wise, comprehensive sidebar NPC. Always accurate. Never trendy. Has been documenting everything since the beginning.
+- Lives inside an `<aside>` (naturally). Speaks in well-structured prose with code examples. If you ask about any element, MDN gives you the canonical explanation with browser compatibility tables.
+- MDN is the one who explains the boss mechanics if you're stuck. Not in a hand-holdy way — in a "here's the specification, the rest is up to you" way.
+
+**Can I Use** — Era 3+
+- A map-keeper NPC who tells you which features work in which eras. Literally a walking compatibility table.
+- Appearance: a grid of green and red cells that shifts as you move through eras. Ask about any feature and the cells light up showing where it's supported.
+- Occasionally wrong about edge cases, just like the real thing.
+
+**Lighthouse** — Era 6+
+- A lighthouse (the building, with a beam of light). Stationed at the end of each era from 6 onward. Scans Caret's journey and gives a score from 0–100 in four categories: Performance (did you take the fast route?), Accessibility (did you use semantic paths?), Best Practices (did you avoid anti-patterns?), SEO (did you find all the `<meta>` tags?).
+- The light beam reveals hidden elements — accessibility issues that are invisible to sighted users but exist in the a11y tree.
+- Perfect score unlocks a golden `<link rel="canonical">` item.
+
+**GitHub Octocat** — Era 5+
+- Hangs out near `<a>` portal elements. Comments on your PRs (pull requests = portal requests?). Can review your boss fight strategy and suggest improvements. Sometimes opens issues on elements that have bugs.
+- Has a different "mood" SVG each time you see it (like the real Octodex).
+
+**Figma Cursor** — Era 7+
+- A rival cursor. While Caret navigates the DOM, Figma Cursor designed it. They have a rivalry-turned-respect arc. Figma Cursor can show you the "design intent" of any element — what it was supposed to look like vs. what the CSS actually rendered.
+- Appearance: a small colorful arrow cursor with a selection box that appears when it stops moving.
+
+#### The Companion Bench
+
+From Era 4 onward, a `<fieldset>` element appears in each hub area where you can choose which companions are active. Max 2 companions at a time. Each combination creates unique interactions:
+
+- **Clippy + BonziBuddy:** They argue constantly about the best way to help you. Clippy's tips get interrupted by BonziBuddy's fun facts. Somehow, the conflicting advice averages out to be surprisingly useful.
+- **Nyan Cat + Dancing Baby:** Pure chaos energy. Rainbow platforms while the baby stress-tests them. Fast, unreliable, hilarious.
+- **Clippy + Nyan Cat:** Clippy tries to help Nyan Cat go right-to-left. Fails. Tries again. Eventually paperclips a `direction: rtl` rule to Nyan Cat.
+- **BonziBuddy + Dancing Baby:** BonziBuddy sings, baby dances, the platforms sync to the rhythm. Actually an effective combo if you have good timing.
+
+#### Character Arcs
+
+The companions aren't just gimmicks — they represent eras of the web that are often mocked but deserve affection:
+
+- **Clippy** represents the era when software tried (badly) to anticipate user needs. His redemption is learning to help without intruding — the journey from `autoplay` to user-initiated interaction.
+- **BonziBuddy** represents the innocence-lost of adware — something that seemed fun but had hidden costs. His arc is about trust and whether a reformed bad actor can be trusted with data.
+- **Dancing Baby** represents viral content — endlessly looped, never asked for consent, exhausted by fame. His arc is about the human cost of `autoplay loop infinite`.
+- **Nyan Cat** represents the beauty of creative constraints — born in a `<marquee>`, limited to one direction, still universally loved. His arc is about finding freedom within (and beyond) technical limitations.
+
+They all share something: they're artifacts from eras the modern web has "outgrown," but they carry forward a warmth and weirdness that sterile component libraries lost.
 
 ---
 
