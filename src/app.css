@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+@theme {
+	/* Inspector Mode palette */
+	--color-dom-bg: #09090b;
+	--color-dom-surface: #18181b;
+	--color-dom-border: #27272a;
+	--color-dom-muted: #3f3f46;
+
+	/* DevTools box model colors */
+	--color-box-content: #4f8cc9;
+	--color-box-padding: #6eb46e;
+	--color-box-margin: #e8a64c;
+	--color-box-border: #c9a448;
+
+	/* Syntax highlighting */
+	--color-syntax-tag: #f59e0b;
+	--color-syntax-attr: #a78bfa;
+	--color-syntax-string: #22d3ee;
+	--color-syntax-value: #34d399;
+	--color-syntax-error: #fb7185;
+	--color-syntax-comment: #71717a;
+	--color-syntax-keyword: #c084fc;
+
+	/* Character colors */
+	--color-caret: #60a5fa;
+	--color-caret-glow: #3b82f6;
+	--color-selection: #264f78;
+
+	/* Game UI */
+	--color-hud-bg: rgba(9, 9, 11, 0.85);
+	--color-hud-border: rgba(63, 63, 70, 0.5);
+
+	/* Fonts */
+	--font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+	--font-display: 'Instrument Serif', Georgia, serif;
+	--font-body: 'Geist Sans', system-ui, sans-serif;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@2.304/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@2.304/fonts/webfonts/JetBrainsMono-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Instrument Serif';
+	src: url('https://fonts.gstatic.com/s/instrumentserif/v4/jizBRFtNs2ka5fCjOQ1DO18WAQY.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: var(--color-dom-bg);
+	color: #e4e4e7;
+	font-family: var(--font-mono);
+}
+
+/* Dot grid background */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background-image: radial-gradient(circle, var(--color-dom-muted) 1px, transparent 1px);
+	background-size: 24px 24px;
+	opacity: 0.3;
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Global game canvas layer */
+#game-world {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* Tag label that appears on game elements */
+.tag-label {
+	position: absolute;
+	top: -18px;
+	left: 4px;
+	font-family: var(--font-mono);
+	font-size: 10px;
+	color: var(--color-syntax-tag);
+	opacity: 0.7;
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+/* Element outline on hover/near */
+.dom-outline {
+	outline: 1px dashed var(--color-dom-border);
+	outline-offset: 2px;
+}
+
+.dom-outline-active {
+	outline: 1px solid var(--color-box-content);
+	outline-offset: 2px;
+	box-shadow: 0 0 12px rgba(79, 140, 201, 0.15);
+}
+
+/* Selection trail effect */
+@keyframes selection-fade {
+	from { opacity: 0.4; }
+	to { opacity: 0; }
+}
+
+/* Caret blink */
+@keyframes caret-blink {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
